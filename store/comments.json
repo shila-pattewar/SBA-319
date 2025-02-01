@@ -1,0 +1,72 @@
+[
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 101,
+      "comment": "Great post! Looking forward to more content.",
+      "createdAt": "2023-01-02T14:00:00Z"
+    },
+    {
+      "id": 2,
+      "postId": 1,
+      "userId": 102,
+      "comment": "Congrats on your first post! MongoDB is awesome.",
+      "createdAt": "2023-01-03T10:30:00Z"
+    },
+    {
+      "id": 3,
+      "postId": 2,
+      "userId": 103,
+      "comment": "MongoDB is indeed powerful. I'm also learning it!",
+      "createdAt": "2023-02-06T09:00:00Z"
+    },
+    {
+      "id": 4,
+      "postId": 3,
+      "userId": 104,
+      "comment": "AI and blockchain are definitely game changers this year.",
+      "createdAt": "2023-03-02T12:45:00Z"
+    },
+    {
+      "id": 5,
+      "postId": 4,
+      "userId": 105,
+      "comment": "That sounds like an amazing day! Keep up the great work.",
+      "createdAt": "2023-04-11T15:10:00Z"
+    },
+    {
+      "id": 6,
+      "postId": 5,
+      "userId": 106,
+      "comment": "Good luck on your fitness journey! Consistency is key!",
+      "createdAt": "2023-05-16T13:00:00Z"
+    },
+    {
+      "id": 7,
+      "postId": 6,
+      "userId": 107,
+      "comment": "Python is great! I also love its simplicity and versatility.",
+      "createdAt": "2023-06-13T11:20:00Z"
+    },
+    {
+      "id": 8,
+      "postId": 7,
+      "userId": 108,
+      "comment": "Sounds like a perfect weekend trip! The mountains are so refreshing.",
+      "createdAt": "2023-07-21T17:35:00Z"
+    },
+    {
+      "id": 9,
+      "postId": 8,
+      "userId": 109,
+      "comment": "I’m also reading 'Atomic Habits'! It’s such an insightful book.",
+      "createdAt": "2023-08-04T18:10:00Z"
+    },
+    {
+      "id": 10,
+      "postId": 9,
+      "userId": 110,
+      "comment": "Japan is an amazing destination. Hope you get to travel there soon!",
+      "createdAt": "2023-09-09T16:00:00Z"
+    }
+  ]
