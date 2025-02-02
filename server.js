@@ -29,13 +29,19 @@ app.get("/users/:userId", async (req, res) => {
     res.send (founduser)
 });
 
-
-// app.post("/users", async (req, res) => {
-//     res.send(req.body);
-//     const founduser = await store.create(req.body);
+app.get("/posts", async (req, res) => {
+    const allstores = await store.find();
     
-//     // res.send (founduser)
-// });
+    res.send (allstores)
+})
+
+app.get("/comments", async (req, res) => {
+    const allstores = await store.find();
+    
+    res.send (allstores)
+})
+
+// POST request
 
 app.post("/users", async (req, res) => {
   try {
@@ -60,10 +66,34 @@ app.post("/users", async (req, res) => {
     res.status(201).send(userResponse); // Send back the new user as a response
   } catch (error) {
     console.error(error);
-    res.status(500).send({ error: "Error creating user" });
+    res.status(500).send({ error: "Error creating new user" });
   }
 });
 
+
+// PUT route to update user by ID
+app.put("/users/:_id", async (req, res) => {
+    try {
+      const userId = req.params._id
+      const updatedData = req.body;
+  
+      // Update the user by ID
+      const updatedUser = await store.findByIdAndUpdate(userId, updatedData, { new: true });
+      //const updatedUser = await store.findOneAndUpdate(userId, updatedData, { new: true });
+      if (!updatedUser) {
+        return res.status(404).send({ error: "User not found" });
+      }
+      const userResponse = updatedUser.toObject();
+      delete userResponse.__v;
+  
+      res.status(200).send(userResponse);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: "Error updating user" });
+    }
+  });
+
+// DELETE Request
 
 app.delete("/users/:userId", async (req, res) => {
     const founduser = await store.findOneAndDelete({"userId":parseInt(req.params.userId)});
@@ -71,17 +101,6 @@ app.delete("/users/:userId", async (req, res) => {
     res.send (founduser)
 });
 
-app.get("/posts", async (req, res) => {
-    const allstores = await store.find();
-    
-    res.send (allstores)
-})
-
-app.get("/comments", async (req, res) => {
-    const allstores = await store.find();
-    
-    res.send (allstores)
-})
 
 app.listen (port, ()=>{
     console.log("Server is listing on port 3000")
