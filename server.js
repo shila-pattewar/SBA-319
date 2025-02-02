@@ -18,9 +18,38 @@ mongoose.connection.on("connected", ()=>{
 
 app.get("/users", async (req, res) => {
     const allstores = await store.find();
+    res.send (allstores);
+});
 
+app.get("/users/:userId", async (req, res) => {
+    const founduser = await store.find({"userId":parseInt(req.params.userId)});
+    //res.render(founduser);
+    res.send (founduser)
+});
+
+// app.post("/users", async (req, res) => {
+//     res.send(req.body);
+//     const founduser = await store.create(req.body);
+    
+//     // res.send (founduser)
+// });
+
+app.delete("/users/:userId", async (req, res) => {
+    const founduser = await store.findOneAndDelete({"userId":parseInt(req.params.userId)});
+    //res.render(founduser);
+    res.send (founduser)
+});
+
+app.get("/posts", async (req, res) => {
+    const allstores = await store.find();
+    
     res.send (allstores)
+})
 
+app.get("/comments", async (req, res) => {
+    const allstores = await store.find();
+    
+    res.send (allstores)
 })
 
 app.listen (port, ()=>{

@@ -1,62 +1,14 @@
 [
     {
-      "id": 1,
-      "userId": 101,
-      "title": "My First Post",
+      "postId": 1,
+      "userId": 1,
+      "title": "shilpa 1 post",
       "content": "This is the content of my very first post. Excited to be here!"
     },
     {
-      "id": 2,
-      "userId": 102,
-      "title": "Exploring MongoDB",
+      "postId": 2,
+      "userId": 1,
+      "title": "shilpa 2 post",
       "content": "Today I started exploring MongoDB. It's a powerful NoSQL database!"
-    },
-    {
-      "id": 3,
-      "userId": 103,
-      "title": "Tech Trends 2023",
-      "content": "2023 is expected to be a big year for AI and blockchain technology."
-    },
-    {
-      "id": 4,
-      "userId": 104,
-      "title": "A Day in the Life",
-      "content": "A typical day for me involves coding, coffee, and some light reading."
-    },
-    {
-      "id": 5,
-      "userId": 105,
-      "title": "Fitness Journey",
-      "content": "Started my fitness journey this year. Consistency is key!"
-    },
-    {
-      "id": 6,
-      "userId": 106,
-      "title": "Learning Python",
-      "content": "Python is such a versatile language. I’m currently learning data analysis with it."
-    },
-    {
-      "id": 7,
-      "userId": 107,
-      "title": "Weekend Getaway",
-      "content": "Took a short weekend trip to the mountains. It was a refreshing break."
-    },
-    {
-      "id": 8,
-      "userId": 108,
-      "title": "Summer Reads",
-      "content": "Reading some great books this summer. Currently enjoying 'Atomic Habits'."
-    },
-    {
-      "id": 9,
-      "userId": 109,
-      "title": "Travel Wishlist",
-      "content": "I’ve been thinking a lot about my dream travel destinations. Top of the list: Japan."
-    },
-    {
-      "id": 10,
-      "userId": 110,
-      "title": "Career Goals",
-      "content": "I have big career goals for this year. Time to make them happen!"
     }
   ]
