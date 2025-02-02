@@ -2,11 +2,13 @@ const express = require ("express");
 const mongoose = require('mongoose')
 
 const app = express();
+app.use(express.json());
 // require('dotenv').config();
  const port = 3000;
 const MONGODB_URI = "mongodb+srv://shilapattewar16:Arnav2012@cluster0.wugen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const store = require("./models/store.js"); // Import the Book Model
+const store = require("./models/store"); // Import the Book Model
+//const users = require("./models/users.js");
 
 // //MIDDLEWARE
 // // connect mongodb using connection string in the .env file
@@ -27,12 +29,41 @@ app.get("/users/:userId", async (req, res) => {
     res.send (founduser)
 });
 
+
 // app.post("/users", async (req, res) => {
 //     res.send(req.body);
 //     const founduser = await store.create(req.body);
     
 //     // res.send (founduser)
 // });
+
+app.post("/users", async (req, res) => {
+  try {
+    // Destructure the incoming body to create a new user
+    const { userId, name, email, password } = req.body;
+
+    // Create new user instance
+    const newUser = new store({
+    userId,
+      name,
+      email,
+      password
+    });
+
+    // Save the new user to the database
+    const savedUser = await newUser.save();
+
+    // Respond with the saved user (optionally without __v)
+    const userResponse = savedUser.toObject();
+    delete userResponse.__v; // Remove the __v field
+
+    res.status(201).send(userResponse); // Send back the new user as a response
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: "Error creating user" });
+  }
+});
+
 
 app.delete("/users/:userId", async (req, res) => {
     const founduser = await store.findOneAndDelete({"userId":parseInt(req.params.userId)});
