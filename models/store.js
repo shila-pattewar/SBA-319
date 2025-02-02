@@ -8,5 +8,5 @@ const storeSchema = new mongoose.Schema({
     // comma above is just in case I add another... key value pair
 });
 
-const store = mongoose.model("store", storeSchema) // create our model!
+const store = mongoose.model("user", storeSchema) // create our model!
 module.exports = store;

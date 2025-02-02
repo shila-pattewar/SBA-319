@@ -6,6 +6,8 @@ const app = express();
  const port = 3000;
 const MONGODB_URI = "mongodb+srv://shilapattewar16:Arnav2012@cluster0.wugen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
+const store = require("./models/store.js"); // Import the Book Model
+
 // //MIDDLEWARE
 // // connect mongodb using connection string in the .env file
 mongoose.connect(MONGODB_URI)
@@ -14,8 +16,11 @@ mongoose.connection.on("connected", ()=>{
 })
 
 
-app.get("/users", (req, res) => {
-    res.send ("welcome to SBA 319")
+app.get("/users", async (req, res) => {
+    const allstores = await store.find();
+
+    res.send (allstores)
+
 })
 
 app.listen (port, ()=>{
