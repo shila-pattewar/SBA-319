@@ -4,10 +4,10 @@ const mongoose = require('mongoose')
 const app = express();
 app.use(express.json());
 // require('dotenv').config();
- const port = 3000;
+const port = 3000;
 const MONGODB_URI = "mongodb+srv://shilapattewar16:Arnav2012@cluster0.wugen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const store = require("./models/store"); // Import the Book Model
+const store = require("./models/store"); // Import the store Model
 //const users = require("./models/users.js");
 
 // //MIDDLEWARE
@@ -93,6 +93,33 @@ app.put("/users/:userId", async (req, res) => {
       res.status(500).send({ error: "Error updating user" });
     }
   });
+
+
+// // PUT route to update user by ID
+// app.put("/users/:name", async (req, res) => {
+//     try {
+//       const name = req.params.name;
+//       const updatedData = req.body;
+  
+//       console.log(`Updating user with userId: ${name}`);
+//       console.log('Updated data:', updatedData);
+
+//       // Update the user by ID
+//       const updatedUser = await store.findOne( name, updatedData, { new: true });
+//       //const updatedUser = await store.findOneAndUpdate(userId, updatedData, { new: true });
+
+//       if (!updatedUser) {
+//         return res.status(404).send({ error: "User not found" });
+//       }
+//       const userResponse = updatedUser.toObject();
+//       delete userResponse.__v;
+  
+//       res.status(200).send(userResponse);
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send({ error: "Error updating user" });
+//     }
+//   });
 
 // DELETE Request
 
