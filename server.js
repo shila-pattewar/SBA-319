@@ -90,7 +90,12 @@ app.patch("/users/:id", async (req, res) => {
   
       res.status(200).send(userResponse);
     } catch (error) {
-      console.error(error);
+      // Handle validation error
+      if (error.name === 'ValidationError') {
+        return res.status(400).send({ error: error.message }); // Password validation error
+      }
+  
+      // General server error
       res.status(500).send({ error: "Error updating user" });
     }
   });
