@@ -95,7 +95,7 @@ app.put("/users/:userId", async (req, res) => {
   });
 
 
-// // PUT route to update user by ID
+// // PUT route to update user by Name
 // app.put("/users/:name", async (req, res) => {
 //     try {
 //       const name = req.params.name;
@@ -132,44 +132,3 @@ app.delete("/users/:userId", async (req, res) => {
 app.listen (port, ()=>{
     console.log("Server is listing on port 3000")
 })
-
-
-
-
-
-
-
-
-// const  mongoose  = require("mongoose");
-// // const { default: router } = require("../../mongoDB/sandbox-319/routes/grades.mjs");
- 
-// // Replace the following with your Atlas connection string                                                                                                                                        
-// const url = "mongodb+srv://shilapattewar16:Arnav2012@cluster0.wugen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
-// // Connect to your Atlas cluster
-// //const client = new MongoClient(url);
-
-// async function run() {
-//     try {
-//          conn = await mongoose.connect(url);//client.connect();
-//          const Book = mongoose.model("Book", bookSchema) // create our model
-         
-//          console.log(conn.db);
-//         //  app.get("/", async (req, res) => {
-//         let collection = await db.collection("users");
-//         let query = {_id:1};
-//         let result = await collection.findOne(query);
-//             console.log(result);
-
-//         // } )
-//         console.log("Successfully connected to Atlas");
-
-//     } catch (err) {
-//         console.log(err.stack);
-//     }
-//     // finally {
-//     //     await client.close();
-//     // }
-// }
-
-// run().catch(console.dir);
