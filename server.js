@@ -41,7 +41,7 @@ app.get("/comments", async (req, res) => {
     res.send (allstores)
 })
 
-// POST request
+// POST request add the user by object
 
 app.post("/users", async (req, res) => {
   try {
@@ -72,14 +72,15 @@ app.post("/users", async (req, res) => {
 
 
 // PUT route to update user by ID
-app.put("/users/:_id", async (req, res) => {
+app.put("/users/:userId", async (req, res) => {
     try {
-      const userId = req.params._id
+      const userId = req.params.userId
       const updatedData = req.body;
   
       // Update the user by ID
       const updatedUser = await store.findByIdAndUpdate(userId, updatedData, { new: true });
       //const updatedUser = await store.findOneAndUpdate(userId, updatedData, { new: true });
+
       if (!updatedUser) {
         return res.status(404).send({ error: "User not found" });
       }
@@ -96,9 +97,8 @@ app.put("/users/:_id", async (req, res) => {
 // DELETE Request
 
 app.delete("/users/:userId", async (req, res) => {
-    const founduser = await store.findOneAndDelete({"userId":parseInt(req.params.userId)});
-    //res.render(founduser);
-    res.send (founduser)
+    const deleteuser = await store.findOneAndDelete({"userId":parseInt(req.params.userId)});
+    res.send (deleteuser)
 });
 
 

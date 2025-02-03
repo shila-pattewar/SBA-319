@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 
 const storeSchema = new mongoose.Schema({
-    userId: String,
-    name: String,
-    email: String,
-    password: String
+    userId: { type: Number, required: true },
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
     // comma above is just in case I add another... key value pair
 }, { versionKey: false });
 
